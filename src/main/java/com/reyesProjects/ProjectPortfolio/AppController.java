@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AppController
 {
 	@Autowired
-	ProjectRepository projectDatabase;
+	private ProjectRepository projectDatabase;
 	
-	ProjectController projectController = new ProjectController(projectDatabase);
+	@Autowired
+	private ProjectController projectController;// = new ProjectController(projectDatabase);
 	
 	@GetMapping("/home")
 	public String ShowHomePage()

@@ -2,7 +2,10 @@ package com.reyesProjects.ProjectPortfolio;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+//@Repository
 public interface ProjectRepository extends CrudRepository<Project, Integer>, IDatabase 
 {
 	public default List<Project> getAllProjects()
