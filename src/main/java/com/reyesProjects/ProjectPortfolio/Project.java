@@ -1,8 +1,16 @@
 package com.reyesProjects.ProjectPortfolio;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Project 
 {
-	private int ID;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	private String name;
 	private String description;
 	private String githubLink;
@@ -14,9 +22,9 @@ public class Project
 		this.name = newProjectName;
 	}
 
-	public int getID() 
+	public int getId() 
 	{
-			return ID;
+		return id;
 	}
 	
 	public String getName() 
@@ -44,5 +52,11 @@ public class Project
 	public void setGithubLink(String newGithubLink) 
 	{
 		this.githubLink = newGithubLink;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return String.format("Project: %d, Name: %s, Description: %s, GithubLink: %s", id, name, description, githubLink);
 	}
 }
