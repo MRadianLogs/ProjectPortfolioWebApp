@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>M.R. Project Portfolio</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<header> 
+		<h1> M.R.'s Online Project Portfolio </h1>
+		<p> <a href="/">Home page</a></p>
+	</header>
+	<main>
+		<hr>
+		<h2> Projects </h2>
+		<ul>
+			<li th:each="project : ${projectsList}"> <a href="" th:href="@{http://localhost:8080/home/projects/project(projectNum=${project.id})}"> <span th:text="${project.name}"> </span> </a></li>
+		</ul>
+	</main>
+    <footer>
+    	
+    </footer>
+</body>
+</html>
