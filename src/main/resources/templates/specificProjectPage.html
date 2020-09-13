@@ -1,10 +1,28 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>M.R. Project Portfolio</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <p th:text="${project}" />
+	<header> 
+		<h1> M.R.'s Online Project Portfolio </h1>
+		<p> <a href="/">Home page</a></p>
+		<p> <a href="/home/projects">Projects page</a></p>
+	</header>
+	<main>
+		<h2 th:text="${project.name} ?: 'No Name'"> </h2>
+		<p>
+			<h3>Description:</h3>  
+			<p th:text="${project.description} ?: 'No Description'" />
+		</p>
+		<p>
+			<h3>Github Link:</h3>
+			<p th:text="${project.githubLink} ?: 'No Github Link'" />
+		</p>
+	</main>
+    <footer>
+    	
+    </footer>
 </body>
 </html>

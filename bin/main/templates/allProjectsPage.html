@@ -15,6 +15,7 @@
 		<ul>
 			<li th:each="project : ${projectsList}"> <a href="" th:href="@{http://localhost:8080/home/projects/project(projectNum=${project.id})}"> <span th:text="${project.name}"> </span> </a></li>
 		</ul>
+		<p> <a href="/home/projects/newproject">Create new project</a> </p>
 	</main>
     <footer>
     	

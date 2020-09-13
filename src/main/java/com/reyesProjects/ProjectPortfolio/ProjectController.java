@@ -40,6 +40,17 @@ public class ProjectController
 		//Store in database and return.
 		return projectDatabase.addNewProjectToDatabase(newProject);
 	}
+	public Project createNewProject(Project newProject)
+	{
+		return projectDatabase.addNewProjectToDatabase(newProject);
+	}
+	public Project createNewProject(String newProjectName, String newProjectDescription, String newGithubLink)
+	{
+		Project newProject = new Project(newProjectName);
+		newProject.setDescription(newProjectDescription);
+		newProject.setGithubLink(newGithubLink);
+		return projectDatabase.addNewProjectToDatabase(newProject);
+	}
 	
 	public Project updateAllProjectDetails(int projectId, String newProjectName, String newProjectDescription, String newGithubLink)
 	{
