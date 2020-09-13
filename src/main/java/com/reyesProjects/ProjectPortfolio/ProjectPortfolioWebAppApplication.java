@@ -21,13 +21,24 @@ public class ProjectPortfolioWebAppApplication {
 
 	@Bean
 	  public CommandLineRunner demo(ProjectController projects) {
-	    return (args) -> {
-	      // save a few customers
-	      projects.createNewProject("Autocreated test project 1");
-	      projects.createNewProject("Autocreated test project 2");
-	      projects.createNewProject("Autocreated test project 3");
-	      projects.createNewProject("ATP 4");
-	      
+	    return (args) -> 
+	    {
+	    	log.info("");
+	    	log.info("vvvvvvvvvvvvvvvv Database Tests vvvvvvvvvvvvvvvvvvvvvv");
+	    	
+	    	// save a few customers
+	    	String testProject1 = "Autocreated test project 1";
+	    	String testProject2 = "Autocreated test project 2";
+	    	String testProject3 = "Autocreated test project 3";
+	    	String testProject4 = "ATP 4";
+	    	if(projects.getProject(testProject1) == null)
+	    		projects.createNewProject(testProject1);
+	    	if(projects.getProject(testProject2) == null)
+	    		projects.createNewProject(testProject2);
+	    	if(projects.getProject(testProject3) == null)
+	    		projects.createNewProject(testProject3);
+	    	if(projects.getProject(testProject4) == null)
+	    		projects.createNewProject(testProject4);	      
 	      
 	      // Get all projects
 	      log.info("All Projects:");
@@ -39,18 +50,25 @@ public class ProjectPortfolioWebAppApplication {
 
 	      // Get project by Id.
 	      Project idProject = projects.getProject(1); //TODO: Test 0.
-	      log.info("Project with id 0:");
-	      log.info("--------------------------------");
-	      log.info(idProject.toString());
-	      log.info("");
+	      if(idProject!=null)
+	      {
+	    	  log.info("Project with id 0:");
+	    	  log.info("--------------------------------");
+	    	  log.info(idProject.toString());
+	    	  log.info("");
+	      }
 	      
 	      // Get project by name.
-	      Project nameProject = projects.getProject("Autocreated test project 2");
-	      log.info("Project with name Autocreated test project 2:");
-	      log.info("--------------------------------");
-	      log.info(nameProject.toString());
-	      log.info("");
-
+	      String nameToSearch = "ATP 4";
+	      Project nameProject = projects.getProject(nameToSearch);
+	      if(nameProject != null)
+	      {
+	    	log.info("Project with name " + nameToSearch + ": ");
+	      	log.info("--------------------------------");
+	      	log.info(nameProject.toString());
+	      	log.info("");
+	      }
+	      
 	      //TODO: Test multiple projects with same name.
 	      log.info("");
 	    };

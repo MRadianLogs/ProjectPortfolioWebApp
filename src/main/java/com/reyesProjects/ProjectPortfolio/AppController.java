@@ -31,7 +31,7 @@ public class AppController
 	}
 	
 	@GetMapping("/home/projects/project")
-	public String ShowSpecificProjectPage(@RequestParam(name = "projectnum", required=true) int projectNum, Model model)
+	public String ShowSpecificProjectPage(@RequestParam(name = "projectNum", required=true) int projectNum, Model model)
 	{
 		model.addAttribute("project", projectController.getProject(projectNum));
 		return "specificProjectPage";
